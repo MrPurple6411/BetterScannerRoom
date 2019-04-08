@@ -1,7 +1,7 @@
 ﻿using Harmony;
 using UnityEngine;
 
-namespace QMultiMod.Patches
+namespace BetterScannerRoom.Patches
 {
     [HarmonyPatch(typeof(MapRoomFunctionality))]
     [HarmonyPatch("GetScanRange")]
@@ -9,10 +9,10 @@ namespace QMultiMod.Patches
     {
         public static bool Prefix(MapRoomFunctionality __instance, ref float __result)
         {
-            __result = Mathf.Min(QMultiModSettings.Instance.ScannerBlipRange,
-                QMultiModSettings.Instance.ScannerMinRange +
+            __result = Mathf.Min(BSRSettings.Instance.ScannerBlipRange,
+                BSRSettings.Instance.ScannerMinRange +
                 (float) __instance.storageContainer.container.GetCount(TechType.MapRoomUpgradeScanRange) *
-                QMultiModSettings.Instance.ScannerUpgradeAddedRange);
+                BSRSettings.Instance.ScannerUpgradeAddedRange);
             return false;
         }
     }
