@@ -2,9 +2,9 @@
 using System;
 using System.IO;
 
-namespace QMultiMod
+namespace BetterScannerRoom
 {
-    class QMultiModSettings
+    class BSRSettings
     {
         public float ScannerSpeedNormalInterval = 14f;
         public float ScannerSpeedMinimumInterval = 1f;
@@ -16,21 +16,21 @@ namespace QMultiMod
         public float FireExtinguisherHolderRechargeValue = 0.005f;
 
 
-        private static readonly string configPath = Environment.CurrentDirectory + @"\QMods\QMultiMod\config.json";
+        private static readonly string configPath = Environment.CurrentDirectory + @"\QMods\BetterScannerRoom\config.json";
         private static readonly QMultiModSettings instance = new QMultiModSettings();
 
 
-        static QMultiModSettings()
+        static BSRSettings()
         {
         }
 
 
-        private QMultiModSettings()
+        private BSRSettings()
         {
         }
 
 
-        public static QMultiModSettings Instance
+        public static BSRSettings Instance
         {
             get
             {
@@ -48,9 +48,9 @@ namespace QMultiMod
             }
 
             var json = File.ReadAllText(configPath);
-            var userSettings = JsonConvert.DeserializeObject<QMultiModSettings>(json);
+            var userSettings = JsonConvert.DeserializeObject<BSRSettings>(json);
 
-            var fields = typeof(QMultiModSettings).GetFields();
+            var fields = typeof(BSRSettings).GetFields();
 
             foreach (var field in fields)
             {
