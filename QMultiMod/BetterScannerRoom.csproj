@@ -7,8 +7,8 @@
     <ProjectGuid>{865F2D15-5616-47A3-9285-A0BE14135EFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QMultiMod</RootNamespace>
-    <AssemblyName>QMultiMod</AssemblyName>
+    <RootNamespace>BetterScannerRoom</RootNamespace>
+    <AssemblyName>BetterScannerRoom</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
