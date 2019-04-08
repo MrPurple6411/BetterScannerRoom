@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace QMultiMod.Patches
+namespace BetterScannerRoom.Patches
 {
     [HarmonyPatch(typeof(uGUI_ResourceTracker))]
     [HarmonyPatch("GatherScanned")]
@@ -14,7 +14,7 @@ namespace QMultiMod.Patches
             {
                 if (instruction.opcode.Equals(OpCodes.Ldc_R4) && instruction.operand.Equals(500f))
                 {
-                    yield return new CodeInstruction(OpCodes.Ldc_R4, QMultiModSettings.Instance.ScannerBlipRange);
+                    yield return new CodeInstruction(OpCodes.Ldc_R4, BSRSettings.Instance.ScannerBlipRange);
                     continue;
                 }
 
