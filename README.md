@@ -10,7 +10,6 @@ the given values reflect the "normal" version of the mod. if you start with the 
 
 Name | Value | Description
 :--- | :-----: | :---
-FireExtinguisherHolderRechargeValue | 0.005 | set to 0 to disable recharging the fuel when placed in a holder
 ScannerSpeedNormalInterval | 14.0 | the default interval in seconds for locating a new blip
 ScannerSpeedMinimumInterval | 1.0 | sets the fastest rate that your scanner can run at, after other adjustments
 ScannerSpeedIntervalPerModule | 3.0 | each speed module added removes 3.0 seconds from the interval
@@ -18,4 +17,3 @@ ScannerBlipRange | 1000.0 | how far your holomap will reach. also increases cuto
 ScannerMinRange | 600.0 | 
 ScannerUpgradeAddedRange | 100.0 | the added range of the scanner per range module
 ScannerCameraRange | 1000.0 | the distance where the camera begins to get noise/fuzz. the full sugnal is lost at 2.05x this number
-FireExtinguisherHolderRechargeValue | 0.005 | fire extinguisher holders recharge the bottle. set to 0 to disable
