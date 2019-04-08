@@ -1,6 +1,6 @@
 ﻿using Harmony;
 
-namespace QMultiMod.Patches
+namespace BetterScannerRoom.Patches
 {
     [HarmonyPatch(typeof(MapRoomFunctionality))]
     [HarmonyPatch("mapScale", PropertyMethod.Getter)]
@@ -8,7 +8,7 @@ namespace QMultiMod.Patches
     {
         public static bool Prefix(MapRoomFunctionality __instance, ref float __result)
         {
-            __result = __instance.hologramRadius / QMultiModSettings.Instance.ScannerBlipRange;
+            __result = __instance.hologramRadius / BSRSettings.Instance.ScannerBlipRange;
             return false;
         }
     }
