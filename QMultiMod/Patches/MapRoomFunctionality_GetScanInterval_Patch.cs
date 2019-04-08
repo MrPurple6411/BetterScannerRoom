@@ -1,7 +1,7 @@
 ﻿using Harmony;
 using UnityEngine;
 
-namespace QMultiMod.Patches
+namespace BetterScannerRoom.Patches
 {
     [HarmonyPatch(typeof(MapRoomFunctionality))]
     [HarmonyPatch("GetScanInterval")]
@@ -9,7 +9,7 @@ namespace QMultiMod.Patches
     {
         public static bool Prefix(MapRoomFunctionality __instance, ref float __result)
         {
-            __result = Mathf.Max(QMultiModSettings.Instance.ScannerSpeedMinimumInterval, QMultiModSettings.Instance.ScannerSpeedNormalInterval - __instance.storageContainer.container.GetCount(TechType.MapRoomUpgradeScanSpeed) * QMultiModSettings.Instance.ScannerSpeedIntervalPerModule);
+            __result = Mathf.Max(BSRSettings.Instance.ScannerSpeedMinimumInterval, BSRSettings.Instance.ScannerSpeedNormalInterval - __instance.storageContainer.container.GetCount(TechType.MapRoomUpgradeScanSpeed) * BSRSettings.Instance.ScannerSpeedIntervalPerModule);
             return false;
         }
     }
