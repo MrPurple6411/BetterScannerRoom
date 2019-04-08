@@ -2,16 +2,16 @@
 using Harmony;
 using System.Reflection;
 
-namespace QMultiMod
+namespace BetterScannerRoom
 {
-    class QPatch
+    class BSRPatch
     {
         public static void Patch()
         {
-            QMultiModSettings.Load();
+            BSRSettings.Load();
             try
             {
-                HarmonyInstance harmony = HarmonyInstance.Create("qmultimod.mod");
+                HarmonyInstance harmony = HarmonyInstance.Create("betterscannerroom.mod");
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
             }
             catch (Exception e)
