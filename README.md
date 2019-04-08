@@ -1,6 +1,3 @@
-### Installation
-https://www.nexusmods.com/subnautica/mods/33
-
 ### Customization
 
 All changes are applied through the `config.json` file which is included with the mod download. The values that come with the mod provide a "Normal" MultiMod experience. If you want to start from scratch, there is a file with pre-configured vanilla settings available on Nexus
