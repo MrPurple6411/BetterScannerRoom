@@ -65,8 +65,8 @@
     <Compile Include="Patches\uGUI_ResourceTracker_GatherAll_Patch.cs" />
     <Compile Include="Patches\uGUI_ResourceTracker_GatherScanned_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QMultiModSettings.cs" />
-    <Compile Include="QPatch.cs" />
+    <Compile Include="BSRSettings.cs" />
+    <Compile Include="BSRPatch.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
