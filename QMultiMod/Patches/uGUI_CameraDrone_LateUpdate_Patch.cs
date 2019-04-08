@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace QMultiMod.Patches
+namespace BetterScannerRoom.Patches
 {
     [HarmonyPatch(typeof(uGUI_CameraDrone))]
     [HarmonyPatch("LateUpdate")]
@@ -16,13 +16,13 @@ namespace QMultiMod.Patches
                 {
                     if (instruction.operand.Equals(250f))
                     {
-                        yield return new CodeInstruction(OpCodes.Ldc_R4, QMultiModSettings.Instance.ScannerCameraRange);
+                        yield return new CodeInstruction(OpCodes.Ldc_R4, BSRSettings.Instance.ScannerCameraRange);
                         continue;
                     }
 
                     if (instruction.operand.Equals(520f))
                     {
-                        yield return new CodeInstruction(OpCodes.Ldc_R4, QMultiModSettings.Instance.ScannerCameraRange * 2.05f);
+                        yield return new CodeInstruction(OpCodes.Ldc_R4, BSRSettings.Instance.ScannerCameraRange * 2.05f);
                         continue;
                     }
                 }
