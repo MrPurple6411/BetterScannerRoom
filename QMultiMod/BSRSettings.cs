@@ -13,11 +13,10 @@ namespace BetterScannerRoom
         public float ScannerMinRange = 600f;
         public float ScannerUpgradeAddedRange = 100f;
         public float ScannerCameraRange = 1000f;
-        public float FireExtinguisherHolderRechargeValue = 0.005f;
 
 
         private static readonly string configPath = Environment.CurrentDirectory + @"\QMods\BetterScannerRoom\config.json";
-        private static readonly QMultiModSettings instance = new QMultiModSettings();
+        private static readonly BSRSettings instance = new BSRSettings();
 
 
         static BSRSettings()
