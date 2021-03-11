@@ -1,11 +1,13 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using System.Reflection;
+using QModManager.API.ModLoading;
 
 namespace BetterScannerRoom
 {
-    class BSRPatch
+    [QModCore]
+    public static class BSRPatch
     {
+        [QModPatch]
         public static void Patch()
         {
             BSRSettings.Load();
