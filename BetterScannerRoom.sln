@@ -7,14 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterScannerRoom", "Better
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		BZ|Any CPU = BZ|Any CPU
+		SN1|Any CPU = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865F2D15-5616-47A3-9285-A0BE14135EFE}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
+		{865F2D15-5616-47A3-9285-A0BE14135EFE}.BZ|Any CPU.Build.0 = BZ|Any CPU
+		{865F2D15-5616-47A3-9285-A0BE14135EFE}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{865F2D15-5616-47A3-9285-A0BE14135EFE}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

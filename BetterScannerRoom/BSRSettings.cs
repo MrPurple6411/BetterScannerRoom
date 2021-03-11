@@ -1,4 +1,8 @@
-﻿using Oculus.Newtonsoft.Json;
+﻿#if SN1
+using Oculus.Newtonsoft.Json;
+#elif BZ
+using Newtonsoft.Json;
+#endif
 using System;
 using System.IO;
 

@@ -1,4 +1,5 @@
-﻿using Harmony;
+﻿#if SN1
+using HarmonyLib;
 using UnityEngine;
 
 namespace BetterScannerRoom.Patches
@@ -14,3 +15,4 @@ namespace BetterScannerRoom.Patches
         }
     }
 }
+#endif
