@@ -53,6 +53,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\$(GameDir)\$(DataFolder)\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="QModInstaller, Version=4.0.3.8, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\$(GameDir)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -70,6 +73,7 @@
     <Compile Include="Patches\MapRoomFunctionality_getMapScale_Patch.cs" />
     <Compile Include="Patches\MapRoomFunctionality_GetScanInterval_Patch.cs" />
     <Compile Include="Patches\MapRoomFunctionality_GetScanRange_Patch.cs" />
+    <Compile Include="Patches\MapRoomFunctionality_UpdateScanRangeAndInterval_Patch.cs" />
     <Compile Include="Patches\uGUI_CameraDrone_LateUpdate_Patch.cs" />
     <Compile Include="Patches\uGUI_ResourceTracker_GatherAll_Patch.cs" />
     <Compile Include="Patches\uGUI_ResourceTracker_GatherScanned_Patch.cs" />
