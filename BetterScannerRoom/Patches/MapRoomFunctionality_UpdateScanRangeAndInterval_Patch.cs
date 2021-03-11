@@ -1,5 +1,5 @@
+#if BZ
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using QModManager.Utility;
@@ -68,3 +68,4 @@ namespace BetterScannerRoom.Patches
         }
     }
 }
+#endif
