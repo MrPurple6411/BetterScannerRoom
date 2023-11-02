@@ -1,65 +1,67 @@
-﻿#if SN1
-using Oculus.Newtonsoft.Json;
-#elif BZ
-using Newtonsoft.Json;
-#endif
+﻿namespace BetterScannerRoom;
+
+using Nautilus.Handlers;
+using Nautilus.Json;
+using Nautilus.Options.Attributes;
 using System;
-using System.IO;
+using System.Collections.Generic;
 
-namespace BetterScannerRoom
+[Menu(MyPluginInfo.PLUGIN_NAME, LoadOn = MenuAttribute.LoadEvents.MenuOpened)]
+internal class BSRSettings: ConfigFile
 {
-    class BSRSettings
+    internal static HashSet<MapRoomFunctionality> MapRooms = new();
+
+    [Slider("Default Speed", 1f, 60f, Order = 0), OnChange(nameof(ApplyOptions))]
+    public float scannerSpeedDefaultInterval = 14f;
+
+    [Slider("Speed Per Module", 1f, 60f, Step = 1f, Order = 1), OnChange(nameof(ApplyOptions))]
+    public float scannerSpeedIntervalPerModule = 3f;
+
+    [Slider("Default Range", 0f, 1500f, DefaultValue = 300f, Step = 50f, Order = 2), OnChange(nameof(ApplyOptions))]
+    public float scannerDefaultRange = 300f;
+
+    [Slider("Range Per Module", 0f, 1500f, DefaultValue = 50f, Step = 25f, Order = 3), OnChange(nameof(ApplyOptions))]
+    public float scannerUpgradeAddedRange = 50f;
+
+    [Slider("Max Range", 0f, 3000f, DefaultValue = 1500f, Step = 50f, Order = 4), OnChange(nameof(ApplyOptions))]
+    public float scannerMaxRange = 1500f;
+
+    [Slider("Blip Range", 0f, 3000f, DefaultValue = 500f, Step = 50f, Order = 5)]
+    public float scannerBlipRange = 500f;
+
+    [Slider("Camera Range", 0f, 3000f, DefaultValue = 1000f, Step = 100f, Order = 6), OnChange(nameof(ApplyOptions))]
+    public float scannerCameraRange = 500f;
+
+    // toggle for the scannerMapPulse
+    [Toggle("Map Pulse", Order = 7), OnChange(nameof(TogglePulse))]
+    public bool mapPulseEnabled = true;
+
+    private static void TogglePulse()
     {
-        public float ScannerSpeedNormalInterval = 14f;
-        public float ScannerSpeedMinimumInterval = 1f;
-        public float ScannerSpeedIntervalPerModule = 3f;
-        public float ScannerBlipRange = 1000f;
-        public float ScannerMinRange = 600f;
-        public float ScannerUpgradeAddedRange = 100f;
-        public float ScannerCameraRange = 1000f;
-
-
-        private static readonly string configPath = Environment.CurrentDirectory + @"\QMods\BetterScannerRoom\config.json";
-        private static readonly BSRSettings instance = new BSRSettings();
-
-
-        static BSRSettings()
+        foreach (var map in MapRooms)
         {
-        }
-
-
-        private BSRSettings()
-        {
-        }
-
-
-        public static BSRSettings Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
-
-
-        public static void Load()
-        {
-            if (!File.Exists(configPath))
-            {
-                File.WriteAllText(configPath, JsonConvert.SerializeObject(Instance, Formatting.Indented));
-                return;
-            }
-
-            var json = File.ReadAllText(configPath);
-            var userSettings = JsonConvert.DeserializeObject<BSRSettings>(json);
-
-            var fields = typeof(BSRSettings).GetFields();
-
-            foreach (var field in fields)
-            {
-                var userValue = field.GetValue(userSettings);
-                field.SetValue(Instance, userValue);
-            }
+            map.prevScanInterval = -1f;
         }
     }
+
+    private static void ApplyOptions()
+    {
+        foreach (var map in MapRooms)
+        {
+            map.containerIsDirty = true;
+            map.miniWorld.ClearAllChunks();
+        }
+    }
+
+    public static BSRSettings Instance { get; } = OptionsPanelHandler.RegisterModOptions<BSRSettings>();
+
+    public static float ScannerCameraRange() => Instance.scannerCameraRange;
+    public static float ScannerBlipRange() => Instance.scannerBlipRange;
+    public static float ScannerDefaultRange() => Instance.scannerDefaultRange;
+    public static float ScannerMaxRange() => Instance.scannerMaxRange;
+    public static float ScannerUpgradeAddedRange() => Instance.scannerUpgradeAddedRange;
+    public static float ScannerSpeedDefaultInterval() => Instance.scannerSpeedDefaultInterval;
+    public static float ScannerSpeedIntervalPerModule() => Instance.scannerSpeedIntervalPerModule;
+    public static float GetExtendedCameraRange() => ScannerCameraRange() * 2.05f;
+    public static bool MapPulseEnabled => Instance.mapPulseEnabled;
 }

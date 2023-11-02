@@ -1,25 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterScannerRoom", "BetterScannerRoom\BetterScannerRoom.csproj", "{865F2D15-5616-47A3-9285-A0BE14135EFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterScannerRoom", "BetterScannerRoom\BetterScannerRoom.csproj", "{821D5A12-BFFC-4C23-9DB4-AF30F98E60EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		BZ|Any CPU = BZ|Any CPU
-		SN1|Any CPU = SN1|Any CPU
+		BelowZero|Any CPU = BelowZero|Any CPU
+		Subnautica|Any CPU = Subnautica|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.BZ|Any CPU.Build.0 = BZ|Any CPU
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
-		{865F2D15-5616-47A3-9285-A0BE14135EFE}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{821D5A12-BFFC-4C23-9DB4-AF30F98E60EC}.BelowZero|Any CPU.ActiveCfg = BelowZero|Any CPU
+		{821D5A12-BFFC-4C23-9DB4-AF30F98E60EC}.BelowZero|Any CPU.Build.0 = BelowZero|Any CPU
+		{821D5A12-BFFC-4C23-9DB4-AF30F98E60EC}.Subnautica|Any CPU.ActiveCfg = Subnautica|Any CPU
+		{821D5A12-BFFC-4C23-9DB4-AF30F98E60EC}.Subnautica|Any CPU.Build.0 = Subnautica|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4A5D69F8-5426-4CEA-A40E-91B74A980B4C}
+		SolutionGuid = {353FA7E5-87DD-4CE4-948D-C8D748B728F8}
 	EndGlobalSection
 EndGlobal
