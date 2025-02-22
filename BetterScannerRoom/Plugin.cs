@@ -27,7 +27,7 @@ public class Plugin : BaseUnityPlugin
     internal static new ManualLogSource Logger;
     private MapInputHandler inputHandler = new();
 
-    public void Awake()
+    private void Awake()
     {
         Logger = base.Logger;
         BSRSettings.Instance.Load();
