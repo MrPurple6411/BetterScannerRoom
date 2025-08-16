@@ -63,10 +63,19 @@ public class Plugin : BaseUnityPlugin
 
         if (Inventory.main != null && Inventory.main.GetHeldObject() == null)
         {
-            ProcessMSG($"Press {uGUI.FormatButton(GameInput.Button.Reload, true, "InputSeparator", false)} to switch to Holographic Controls.", !inputHandler.canHandleInput);
-            ProcessMSG($"Press {uGUI.FormatButton(GameInput.Button.Reload, true, "InputSeparator", false)} to exit Holographic Controls.", inputHandler.canHandleInput);
-            ProcessMSG($"Hold {uGUI.FormatButton(GameInput.Button.LeftHand, true, "InputSeparator", false)} to raise/lower map by looking up/down.", inputHandler.canHandleInput);
-            ProcessMSG($"Hold {uGUI.FormatButton(GameInput.Button.RightHand, true, "InputSeparator", false)} to rotate map by looking left/right.", inputHandler.canHandleInput);
+            // Get current input device across SN/BZ API differences
+#if BELOWZERO
+            var device = GameInput.GetPrimaryDevice();
+#else
+            var device = GameInput.PrimaryDevice;
+#endif
+            var reloadBind = GameInput.GetBinding(device, GameInput.Button.Reload, GameInput.BindingSet.Primary);
+            var leftBind = GameInput.GetBinding(device, GameInput.Button.LeftHand, GameInput.BindingSet.Primary);
+            var rightBind = GameInput.GetBinding(device, GameInput.Button.RightHand, GameInput.BindingSet.Primary);
+            ProcessMSG($"Press {reloadBind} to switch to Holographic Controls.", !inputHandler.canHandleInput);
+            ProcessMSG($"Press {reloadBind} to exit Holographic Controls.", inputHandler.canHandleInput);
+            ProcessMSG($"Hold {leftBind} to raise/lower map by looking up/down.", inputHandler.canHandleInput);
+            ProcessMSG($"Hold {rightBind} to rotate map by looking left/right.", inputHandler.canHandleInput);
             if (GameInput.GetButtonDown(GameInput.Button.Reload))
             {
                 inputHandler.canHandleInput = !inputHandler.canHandleInput;
