@@ -131,11 +131,8 @@ internal class MiniWorld_Patches
                                 return;
                             }
 
-#if SUBNAUTICA
+                            // Both games now support Addressables handle overloads in 2025 baselines
                             miniWorld.GetOrMakeChunk(chunkId, request, chunkPath);
-#else
-                            miniWorld.GetOrMakeChunk(chunkId, request.Result, chunkPath);
-#endif
                             chunkAdded = true;
                         };
                         handles.Add(request);
